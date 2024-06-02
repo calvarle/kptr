@@ -108,7 +108,7 @@ export async function getAllImages({ limit = 9, page = 1, searchQuery = '' }: {
       secure: true,
     })
 
-    let expression = 'folder=imaginify';
+    let expression = 'folder=kapture';
 
     if (searchQuery) {
       expression += ` AND ${searchQuery}`
@@ -136,7 +136,7 @@ export async function getAllImages({ limit = 9, page = 1, searchQuery = '' }: {
       .sort({ updatedAt: -1 })
       .skip(skipAmount)
       .limit(limit);
-    
+
     const totalImages = await Image.find(query).countDocuments();
     const savedImages = await Image.find().countDocuments();
 
